@@ -1,0 +1,2014 @@
+{
+    "openapi": "3.0.0",
+    "paths": {
+        "/employee": {
+            "post": {
+                "tags": [
+                    "No authorization needed"
+                ],
+                "summary": "Creación de un empleado nuevo",
+                "operationId": "a1ead0b448ceb79d81a5701d2fda67a7",
+                "requestBody": {
+                    "description": "Información del nuevo empleado",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "name",
+                                    "surname",
+                                    "phone",
+                                    "birthDate"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "string"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "string"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "example": "string"
+                                    },
+                                    "surname": {
+                                        "type": "string",
+                                        "example": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "string"
+                                    },
+                                    "gender": {
+                                        "type": "string",
+                                        "example": "string"
+                                    },
+                                    "birthDate": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "datetime"
+                                    },
+                                    "creationDate": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "datetime"
+                                    },
+                                    "lastConnection": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "datetime"
+                                    },
+                                    "dni": {
+                                        "type": "string",
+                                        "example": "string"
+                                    },
+                                    "profileImage": {
+                                        "type": "string",
+                                        "example": "string"
+                                    },
+                                    "marketingMails": {
+                                        "type": "boolean",
+                                        "example": "boolean"
+                                    },
+                                    "centers": {
+                                        "type": "relation",
+                                        "example": "relation"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Alguno de los parámetros no es válido",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 422
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Datos no válidos"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "El user ha sido creado correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 3
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "example": "string"
+                                            },
+                                            "roles": {
+                                                "type": "json",
+                                                "example": "json"
+                                            },
+                                            "password": {
+                                                "type": "string",
+                                                "example": "string"
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "string"
+                                            },
+                                            "surname": {
+                                                "type": "string",
+                                                "example": "string"
+                                            },
+                                            "phone": {
+                                                "type": "string",
+                                                "example": "string"
+                                            },
+                                            "gender": {
+                                                "type": "string",
+                                                "example": "string"
+                                            },
+                                            "birthDate": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "example": "datetime"
+                                            },
+                                            "creationDate": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "example": "datetime"
+                                            },
+                                            "lastConnection": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "example": "datetime"
+                                            },
+                                            "dni": {
+                                                "type": "string",
+                                                "example": "string"
+                                            },
+                                            "profileImage": {
+                                                "type": "string",
+                                                "example": "string"
+                                            },
+                                            "marketingMails": {
+                                                "type": "boolean",
+                                                "example": "boolean"
+                                            },
+                                            "centers": {
+                                                "type": "relation",
+                                                "example": "relation"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "example": {
+                                    "message": "El user ha sido editado correctamente",
+                                    "data": {
+                                        "id": "3",
+                                        "email": "string",
+                                        "roles": "json",
+                                        "password": "string",
+                                        "name": "string",
+                                        "surname": "string",
+                                        "phone": "string",
+                                        "gender": "string",
+                                        "birthDate": "datetime",
+                                        "creationDate": "datetime",
+                                        "lastConnection": "datetime",
+                                        "dni": "string",
+                                        "profileImage": "string",
+                                        "marketingMails": "boolean",
+                                        "center": "relation"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "recuperarCuenta": {
+            "post": {
+                "tags": [
+                    "No authorization needed"
+                ],
+                "summary": "Recuperación de cuenta enviando un email con un enlace de cambio de contraseña",
+                "operationId": "c6d6070b3843aca810519e4a923d2e56",
+                "requestBody": {
+                    "description": "Email de cuenta perdida",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user@dominio.com"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "El email no existe o no ha sido pasado correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 422
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "email desconocido"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "El email ha sido enviado correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Email enviado con éxito"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cambiarPassword": {
+            "post": {
+                "tags": [
+                    "No authorization needed"
+                ],
+                "summary": "Cambio de contraseña de una cuenta",
+                "operationId": "e85bc8073946abf3ede2cd17bd254a60",
+                "requestBody": {
+                    "description": "Token y nueva contraseña",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "recover_token",
+                                    "new_password"
+                                ],
+                                "properties": {
+                                    "recover_token": {
+                                        "type": "string",
+                                        "example": "ZHjyt79MliaQ7lNeMbi4k32MvHcyut+ypN0BDsO+BNXO5nUb+A+f/JYur8KKBrO4%7C3kAmrA60ALEMKIAGjKAveQ=="
+                                    },
+                                    "new_password": {
+                                        "type": "string",
+                                        "example": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3 (hasheado en SHA256)"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Alguna de las propiedades del request body no es válida o bien el token ya ha caducado o ha sido usado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "422"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Datos no válidos"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "El user ha cambiado su contraseña con éxito",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Password cambiado con éxito"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/login/user": {
+            "post": {
+                "tags": [
+                    "No authorization needed"
+                ],
+                "summary": "Login que devuelve token",
+                "operationId": "41dff5a806a0e4df86bb369d75b19edc",
+                "requestBody": {
+                    "description": "Credenciales de acceso",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "username",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "username": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user@dominio.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3 (hasheado en SHA256)"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Las credenciales no son correctas",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer",
+                                            "example": 401
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Invalid credentials."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Token de seguridad devuelto",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "token": {
+                                            "type": "string",
+                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2MDE4OTQyNjksImV4cCI6MTYwMTg5Nzg2OSwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJ1c2VybmFtZSI6ImFkbWluQHplYnJhLmNvbSJ9.F2R9rqAe45L51fbjZ3I0r1KV4kGdfa4VkuZUkEyxvWQVNVk8J7fTdQd6oL563CGieCzIGrSHao2WUEF4Jia7be65rLbmWolowWzQfyhfUeXk6Lx45nNfBuOayaYD2fJAJUAuK7HMcMkpFfVCsNe2iXAHgGO9Sls6siPX_MAv3VNtUWevOOBnjhXIv8UmffHtmnA9ndXNNUmgjemvtWU2ZQTlevweVPrTZgfrNMioFY8cG9gMOUyCfi_xJuuW41YVoossxGE1lf618stw3uggUpZl4S3eDrUfuw24Gt_TiBEq0YI0sZRVJF8knczxzLZjS3cgWlWX49kELXkuO2OTYTrWeOaverDPiucicANVG267f_p_zfS3TIX-oOveCXfYaTEOSYbgGsm-e16CGllaXkXlkj2jMibCJHr7ITZH5ZuesC8yvWgdTrk03c9tbJ41qoIkTEgculwuQaecD_50yOZCb0vBG6MuMKh4c6RrEQWEw1-oLjOt2Ox0kIvgrem4-ZOvs8nlEvIDdPelqJADiGweKgEZUC7p6GLxrwvHuwfDUQrixVpExR-UXdkl6OwW4m37ik8CJwp98msiXRSGWkcpOvzKXBJd4SSeWx2yJpBhXyd5PDbbGcopxW8LEe6QK6vx5cvvGmKltgJ4rr2-1PnVd6aOiMaR31CEprFK3xg"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/refreshToken": {
+            "post": {
+                "tags": [
+                    "No authorization needed"
+                ],
+                "summary": "Actualizar token de seguridad",
+                "operationId": "52368e358857fd8844e8680ae6121904",
+                "responses": {
+                    "200": {
+                        "description": "El token ha sido actualizado con éxito",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "refresh_token": {
+                                            "type": "string",
+                                            "example": "f731efc553108b8940b8028aa2f9546ba052d4399efcf835ccf3d270a35000c073b88df133f108a0af1a4799f5bf0614df845b0b76f1b07dd21b54f4cd366383"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/empleado/{id}": {
+            "get": {
+                "tags": [
+                    "Empleado"
+                ],
+                "summary": "Recuperación de un empleado por id",
+                "operationId": "74b741860b316c27f712e6fbf4918774",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identificador del empleado que se quiere recoger. Rango posible de valores: números enteros desde el 1 hasta el +∞",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "El empleado no existe",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 404
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Empleado no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "El empleado ha sido devuelto correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "id": "3",
+                                    "nombre": "string",
+                                    "apellidos": "string",
+                                    "correo": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Empleado"
+                ],
+                "summary": "Edición de un empleado",
+                "operationId": "2c652af74a4eb346da2646e4a79fc3d1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identificador del empleado que se quiere editar. Rango posible de valores: números enteros desde el 1 hasta el +∞",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Información a editar del empleado",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "string"
+                                    },
+                                    "apellidos": {
+                                        "type": "string",
+                                        "example": "string"
+                                    },
+                                    "correo": {
+                                        "type": "string",
+                                        "example": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "404": {
+                        "description": "El empleado no existe",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 404
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Empleado no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "El empleado ha sido editado correctamente. Se devuelven los nuevos datos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 3
+                                            },
+                                            "nombre": {
+                                                "type": "string",
+                                                "example": "string"
+                                            },
+                                            "apellidos": {
+                                                "type": "string",
+                                                "example": "string"
+                                            },
+                                            "correo": {
+                                                "type": "string",
+                                                "example": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "example": {
+                                    "message": "El empleado ha sido editado correctamente",
+                                    "data": {
+                                        "id": "3",
+                                        "nombre": "string",
+                                        "apellidos": "string",
+                                        "correo": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/empleado": {
+            "get": {
+                "tags": [
+                    "Empleado"
+                ],
+                "summary": "Recuperación del listado de empleados",
+                "operationId": "18074ad588ff1a51524d038af533b269",
+                "parameters": [
+                    {
+                        "name": "num_devoluciones",
+                        "in": "query",
+                        "description": "Número máximo de filas a devolver. Rango posible de valores: números enteros desde el 1 hasta el +∞",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "num_pagina",
+                        "in": "query",
+                        "description": "Número de página desde el que devolver las filas. Rango posible de valores: números enteros desde el 1 hasta el +∞",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Filtro por id.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "nombre",
+                        "in": "query",
+                        "description": "Filtro por nombre.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "apellidos",
+                        "in": "query",
+                        "description": "Filtro por apellidos.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "correo",
+                        "in": "query",
+                        "description": "Filtro por correo.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "422": {
+                        "description": "Los parámetros de la paginación no son correctos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 422
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Datos de paginación no válidos"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "El listado ha sido devuelto correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 3
+                                            },
+                                            "nombre": {
+                                                "type": "string",
+                                                "example": "string"
+                                            },
+                                            "apellidos": {
+                                                "type": "string",
+                                                "example": "string"
+                                            },
+                                            "correo": {
+                                                "type": "string",
+                                                "example": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "3",
+                                        "nombre": "string",
+                                        "apellidos": "string",
+                                        "correo": "string"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Empleado"
+                ],
+                "summary": "Creación de un empleado nuevo",
+                "operationId": "7af508e00a306661153a1fd4ac9c1209",
+                "requestBody": {
+                    "description": "Información del nuevo empleado",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "dni"
+                                ],
+                                "properties": {
+                                    "dni": {
+                                        "type": "string",
+                                        "example": "string"
+                                    },
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "string"
+                                    },
+                                    "apellidos": {
+                                        "type": "string",
+                                        "example": "string"
+                                    },
+                                    "correo": {
+                                        "type": "string",
+                                        "example": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Alguno de los parámetros no es válido",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 422
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Datos no válidos"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "El empleado ha sido creado correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 3
+                                            },
+                                            "nombre": {
+                                                "type": "string",
+                                                "example": "string"
+                                            },
+                                            "apellidos": {
+                                                "type": "string",
+                                                "example": "string"
+                                            },
+                                            "correo": {
+                                                "type": "string",
+                                                "example": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "example": {
+                                    "message": "El empleado ha sido editado correctamente",
+                                    "data": {
+                                        "id": "3",
+                                        "nombre": "string",
+                                        "apellidos": "string",
+                                        "correo": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Empleado"
+                ],
+                "summary": "Eliminación de empleados",
+                "operationId": "b8be7f262a400f3cfbdc8c5f898c1417",
+                "requestBody": {
+                    "description": "Identificadores de los empleados que se quieren eliminar",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "ids"
+                                ],
+                                "properties": {
+                                    "ids": {
+                                        "type": "array",
+                                        "items": {},
+                                        "example": [
+                                            1,
+                                            3,
+                                            5
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "404": {
+                        "description": "El empleado no existe",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 404
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Empleado con id 3 no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Los empleado han sido eliminados correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Empleados eliminados con éxito"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/mes/{id}": {
+            "get": {
+                "tags": [
+                    "Mes"
+                ],
+                "summary": "Recuperación de un me por id",
+                "operationId": "ba00086f1d5e2349358a244f259cadbf",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identificador del me que se quiere recoger. Rango posible de valores: números enteros desde el 1 hasta el +∞",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "El me no existe",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 404
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Mes no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "El me ha sido devuelto correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "id": "3",
+                                    "fecha": "datetime",
+                                    "empleado": "entity"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Mes"
+                ],
+                "summary": "Edición de un me",
+                "operationId": "2ec681374b460420d9d6e39c3b8b4203",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identificador del me que se quiere editar. Rango posible de valores: números enteros desde el 1 hasta el +∞",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Información a editar del me",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "fecha": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "datetime"
+                                    },
+                                    "empleado": {
+                                        "type": "entity",
+                                        "example": "entity"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "404": {
+                        "description": "El me no existe",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 404
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Mes no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "El me ha sido editado correctamente. Se devuelven los nuevos datos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 3
+                                            },
+                                            "fecha": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "example": "datetime"
+                                            },
+                                            "empleado": {
+                                                "type": "entity",
+                                                "example": "entity"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "example": {
+                                    "message": "El me ha sido editado correctamente",
+                                    "data": {
+                                        "id": "3",
+                                        "fecha": "datetime",
+                                        "empleado": "entity"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/mes": {
+            "get": {
+                "tags": [
+                    "Mes"
+                ],
+                "summary": "Recuperación del listado de mes",
+                "operationId": "78fa2a147237f5ca1dee02162c584a91",
+                "parameters": [
+                    {
+                        "name": "num_devoluciones",
+                        "in": "query",
+                        "description": "Número máximo de filas a devolver. Rango posible de valores: números enteros desde el 1 hasta el +∞",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "num_pagina",
+                        "in": "query",
+                        "description": "Número de página desde el que devolver las filas. Rango posible de valores: números enteros desde el 1 hasta el +∞",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "fecha",
+                        "in": "query",
+                        "description": "Filtro por fecha.",
+                        "required": false,
+                        "schema": {
+                            "type": "datetime"
+                        }
+                    },
+                    {
+                        "name": "empleado",
+                        "in": "query",
+                        "description": "Filtro por empleado.",
+                        "required": false,
+                        "schema": {
+                            "type": "entity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "422": {
+                        "description": "Los parámetros de la paginación no son correctos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 422
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Datos de paginación no válidos"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "El listado ha sido devuelto correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 3
+                                            },
+                                            "fecha": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "example": "datetime"
+                                            },
+                                            "empleado": {
+                                                "type": "entity",
+                                                "example": "entity"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "3",
+                                        "fecha": "datetime",
+                                        "empleado": "entity"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Mes"
+                ],
+                "summary": "Creación de un me nuevo",
+                "operationId": "fc405331703e5171c352672c7ec341c9",
+                "requestBody": {
+                    "description": "Información del nuevo me",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "empleado"
+                                ],
+                                "properties": {
+                                    "fecha": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "datetime"
+                                    },
+                                    "empleado": {
+                                        "type": "entity",
+                                        "example": "entity"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Alguno de los parámetros no es válido",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 422
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Datos no válidos"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "El me ha sido creado correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 3
+                                            },
+                                            "fecha": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "example": "datetime"
+                                            },
+                                            "empleado": {
+                                                "type": "entity",
+                                                "example": "entity"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "example": {
+                                    "message": "El me ha sido editado correctamente",
+                                    "data": {
+                                        "id": "3",
+                                        "fecha": "datetime",
+                                        "empleado": "entity"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Mes"
+                ],
+                "summary": "Eliminación de mes",
+                "operationId": "e6f62b28bc90cbbd0f935c26fc33f7b8",
+                "requestBody": {
+                    "description": "Identificadores de los mes que se quieren eliminar",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "ids"
+                                ],
+                                "properties": {
+                                    "ids": {
+                                        "type": "array",
+                                        "items": {},
+                                        "example": [
+                                            1,
+                                            3,
+                                            5
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "404": {
+                        "description": "El me no existe",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 404
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Mes con id 3 no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Los me han sido eliminados correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Mess eliminados con éxito"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/registro/{id}": {
+            "get": {
+                "tags": [
+                    "Registro"
+                ],
+                "summary": "Recuperación de un registro por id",
+                "operationId": "274db7620873dd47f5cf1513d66a3dac",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identificador del registro que se quiere recoger. Rango posible de valores: números enteros desde el 1 hasta el +∞",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "El registro no existe",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 404
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Registro no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "El registro ha sido devuelto correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "id": "3",
+                                    "entrada": "time",
+                                    "salida": "time",
+                                    "almuerzoEntrada": "time",
+                                    "almuerzoSalida": "time",
+                                    "comidaEntrada": "time",
+                                    "comidaSalida": "time",
+                                    "mes": "entity"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Registro"
+                ],
+                "summary": "Edición de un registro",
+                "operationId": "da5c09510db883fd7a8bcf3e338a69cf",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identificador del registro que se quiere editar. Rango posible de valores: números enteros desde el 1 hasta el +∞",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Información a editar del registro",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "entrada": {
+                                        "type": "time",
+                                        "example": "time"
+                                    },
+                                    "salida": {
+                                        "type": "time",
+                                        "example": "time"
+                                    },
+                                    "almuerzoEntrada": {
+                                        "type": "time",
+                                        "example": "time"
+                                    },
+                                    "almuerzoSalida": {
+                                        "type": "time",
+                                        "example": "time"
+                                    },
+                                    "comidaEntrada": {
+                                        "type": "time",
+                                        "example": "time"
+                                    },
+                                    "comidaSalida": {
+                                        "type": "time",
+                                        "example": "time"
+                                    },
+                                    "mes": {
+                                        "type": "entity",
+                                        "example": "entity"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "404": {
+                        "description": "El registro no existe",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 404
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Registro no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "El registro ha sido editado correctamente. Se devuelven los nuevos datos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 3
+                                            },
+                                            "entrada": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "salida": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "almuerzoEntrada": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "almuerzoSalida": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "comidaEntrada": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "comidaSalida": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "mes": {
+                                                "type": "entity",
+                                                "example": "entity"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "example": {
+                                    "message": "El registro ha sido editado correctamente",
+                                    "data": {
+                                        "id": "3",
+                                        "entrada": "time",
+                                        "salida": "time",
+                                        "almuerzoEntrada": "time",
+                                        "almuerzoSalida": "time",
+                                        "comidaEntrada": "time",
+                                        "comidaSalida": "time",
+                                        "mes": "entity"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/registro": {
+            "get": {
+                "tags": [
+                    "Registro"
+                ],
+                "summary": "Recuperación del listado de registros",
+                "operationId": "328bf288ef185ff3e15a50387f3e6c91",
+                "parameters": [
+                    {
+                        "name": "num_devoluciones",
+                        "in": "query",
+                        "description": "Número máximo de filas a devolver. Rango posible de valores: números enteros desde el 1 hasta el +∞",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "num_pagina",
+                        "in": "query",
+                        "description": "Número de página desde el que devolver las filas. Rango posible de valores: números enteros desde el 1 hasta el +∞",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "entrada",
+                        "in": "query",
+                        "description": "Filtro por entrada.",
+                        "required": false,
+                        "schema": {
+                            "type": "time"
+                        }
+                    },
+                    {
+                        "name": "salida",
+                        "in": "query",
+                        "description": "Filtro por salida.",
+                        "required": false,
+                        "schema": {
+                            "type": "time"
+                        }
+                    },
+                    {
+                        "name": "almuerzoEntrada",
+                        "in": "query",
+                        "description": "Filtro por almuerzoEntrada.",
+                        "required": false,
+                        "schema": {
+                            "type": "time"
+                        }
+                    },
+                    {
+                        "name": "almuerzoSalida",
+                        "in": "query",
+                        "description": "Filtro por almuerzoSalida.",
+                        "required": false,
+                        "schema": {
+                            "type": "time"
+                        }
+                    },
+                    {
+                        "name": "comidaEntrada",
+                        "in": "query",
+                        "description": "Filtro por comidaEntrada.",
+                        "required": false,
+                        "schema": {
+                            "type": "time"
+                        }
+                    },
+                    {
+                        "name": "comidaSalida",
+                        "in": "query",
+                        "description": "Filtro por comidaSalida.",
+                        "required": false,
+                        "schema": {
+                            "type": "time"
+                        }
+                    },
+                    {
+                        "name": "mes",
+                        "in": "query",
+                        "description": "Filtro por mes.",
+                        "required": false,
+                        "schema": {
+                            "type": "entity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "422": {
+                        "description": "Los parámetros de la paginación no son correctos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 422
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Datos de paginación no válidos"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "El listado ha sido devuelto correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 3
+                                            },
+                                            "entrada": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "salida": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "almuerzoEntrada": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "almuerzoSalida": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "comidaEntrada": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "comidaSalida": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "mes": {
+                                                "type": "entity",
+                                                "example": "entity"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "3",
+                                        "entrada": "time",
+                                        "salida": "time",
+                                        "almuerzoEntrada": "time",
+                                        "almuerzoSalida": "time",
+                                        "comidaEntrada": "time",
+                                        "comidaSalida": "time",
+                                        "mes": "entity"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Registro"
+                ],
+                "summary": "Creación de un registro nuevo",
+                "operationId": "3edfe92fb3db42611fe94966567c1f8e",
+                "requestBody": {
+                    "description": "Información del nuevo registro",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "comidaEntrada",
+                                    "mes"
+                                ],
+                                "properties": {
+                                    "entrada": {
+                                        "type": "time",
+                                        "example": "time"
+                                    },
+                                    "salida": {
+                                        "type": "time",
+                                        "example": "time"
+                                    },
+                                    "almuerzoEntrada": {
+                                        "type": "time",
+                                        "example": "time"
+                                    },
+                                    "almuerzoSalida": {
+                                        "type": "time",
+                                        "example": "time"
+                                    },
+                                    "comidaEntrada": {
+                                        "type": "time",
+                                        "example": "time"
+                                    },
+                                    "comidaSalida": {
+                                        "type": "time",
+                                        "example": "time"
+                                    },
+                                    "mes": {
+                                        "type": "entity",
+                                        "example": "entity"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Alguno de los parámetros no es válido",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 422
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Datos no válidos"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "El registro ha sido creado correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 3
+                                            },
+                                            "entrada": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "salida": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "almuerzoEntrada": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "almuerzoSalida": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "comidaEntrada": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "comidaSalida": {
+                                                "type": "time",
+                                                "example": "time"
+                                            },
+                                            "mes": {
+                                                "type": "entity",
+                                                "example": "entity"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "example": {
+                                    "message": "El registro ha sido editado correctamente",
+                                    "data": {
+                                        "id": "3",
+                                        "entrada": "time",
+                                        "salida": "time",
+                                        "almuerzoEntrada": "time",
+                                        "almuerzoSalida": "time",
+                                        "comidaEntrada": "time",
+                                        "comidaSalida": "time",
+                                        "mes": "entity"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Registro"
+                ],
+                "summary": "Eliminación de registros",
+                "operationId": "bd5bca1069bc19d16ad9357bae531037",
+                "requestBody": {
+                    "description": "Identificadores de los registros que se quieren eliminar",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "ids"
+                                ],
+                                "properties": {
+                                    "ids": {
+                                        "type": "array",
+                                        "items": {},
+                                        "example": [
+                                            1,
+                                            3,
+                                            5
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "404": {
+                        "description": "El registro no existe",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 404
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Registro con id 3 no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Los registro han sido eliminados correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Registros eliminados con éxito"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        }
+    }
+}

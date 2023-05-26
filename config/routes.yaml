@@ -1,0 +1,10 @@
+api_login_check:
+  path: /login/user
+  controller: App\Controller\AuthController::getTokenUser
+
+api_token_refresh:
+  path: /api/refreshToken
+  controller: gesdinet.jwtrefreshtoken::refresh
+
+api_refresh_token:
+    path: /api/token/refresh

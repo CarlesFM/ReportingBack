@@ -1,0 +1,76 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>API Doc Regatas</title>
+  <link rel="stylesheet" type="text/css" href="./swagger-ui.css">
+  <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <style>
+    html {
+      box-sizing: border-box;
+      overflow: -moz-scrollbars-vertical;
+      overflow-y: scroll;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      background: #fafafa;
+    }
+
+    .encabezado {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="swagger-ui"></div>
+  <script src="./swagger-ui-bundle.js" charset="UTF-8"> </script>
+  <script src="./swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
+  <script>
+    window.onload = function () {
+      // Begin Swagger UI call region
+      const ui = SwaggerUIBundle({
+        url: "swagger.json",
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout"
+      })
+      // End Swagger UI call region
+
+      window.ui = ui
+      $(".download-url-wrapper").css("display", "none");
+      $(".topbar-wrapper").append("<a href='doc.php' style='position: absolute; right: 20px; font-size: 14px; text-decoration: underline'>REFRESCAR DOCUMENTACIÓN</a>");
+      $(".topbar-wrapper a img").attr("src", "logo.png");
+      $(".topbar-wrapper a img").attr("height", "70");
+      $(".swagger-ui.swagger-container").prepend("<div style='margin-bottom: 160px'></div>");
+      $(".topbar").css("position", "fixed");
+      $(".topbar").css("top", "0");
+      $(".topbar").css("left", "0");
+      $(".topbar").css("right", "0");
+      $(".topbar").css("z-index", "1");
+      $(".topbar").css("background", "linear-gradient(to left, #0080ff, #0056ab)");
+    }
+  </script>
+</body>
+
+</html>
